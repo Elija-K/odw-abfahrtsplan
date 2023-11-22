@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press F11</title>
+</head>
+<body>
+    <div id="beringen-bad-bf" style="display: none;">
+        <iframe src="https://free.oevplus.ch/monitor/?viewType=singleView&layout=1&showClock=true&showPerron=false&stationGroup1Title=Beringen%20Bad%20Bf&station_1_id=80%3A14484&station_1_name=Beringen%20Bad%20Bf&station_1_quantity=5&station_1_group=1" frameborder="0" style="height: 100vh; width: 100vw; border: none;"></iframe>
+    </div>
+    <div id="beringen-sonne" style="display: none;">
+        <iframe src="https://free.oevplus.ch/monitor/?viewType=singleView&layout=1&showClock=true&showPerron=false&stationGroup1Title=Beringen%2C%20Sonne&station_1_id=85%3A3483&station_1_name=Beringen%2C%20Sonne&station_1_quantity=5&station_1_group=1" frameborder ="0" style="height: 100vh; width: 100vw; border: none;"></iframe>
+    </div>
+    <div id="beringen-bhf" style="display: none;">
+        <iframe src="https://free.oevplus.ch/monitor/?viewType=singleView&layout=1&showClock=true&showPerron=false&stationGroup1Title=Beringen%2C%20Bahnhof&station_1_id=85%3A95416&station_1_name=Beringen%2C%20Bahnhof&station_1_quantity=5&station_1_group=1" frameborder="0" style="height: 100vh; width: 100vw; border: none;"></iframe>
+    </div>
+
+    <script>
+        let beringen_bad_bf = document.getElementById("beringen-bad-bf");
+        let beringen_sonne = document.getElementById("beringen-sonne");
+        let beringen_bhf = document.getElementById("beringen-bhf");
+
+        let delaytime = 3000;
+        let counter = 1;
+
+
+        setInterval(interval, delaytime * 3);
+
+        function interval() {
+            console.log("next Div");
+            console.log(counter)
+
+            if (counter == 1)
+            {
+                changetodiv1();
+                counter = 2;
+            } else if (counter == 2)
+            {
+                changetodiv2();
+                counter = 3;
+            } else
+            {
+                changetodiv3();
+                counter = 1;
+            }
+        }
+
+        function changetodiv1() {
+            beringen_bad_bf.style.display = "block";
+            beringen_sonne.style.display = "none";
+            beringen_bhf.style.display = "none";
+        }
+        function changetodiv2() {
+            beringen_bad_bf.style.display = "none";
+            beringen_sonne.style.display = "block";
+            beringen_bhf.style.display = "none";
+        }
+        function changetodiv3() {
+            beringen_bad_bf.style.display = "none";
+            beringen_sonne.style.display = "none";
+            beringen_bhf.style.display = "block";
+        }
+    </script>
+</body>
+</html>
