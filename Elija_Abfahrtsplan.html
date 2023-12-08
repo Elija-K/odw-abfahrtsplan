@@ -15,11 +15,15 @@
     <div id="beringen-bhf" style="display: none;">
         <iframe src="https://free.oevplus.ch/monitor/?viewType=singleView&layout=1&showClock=true&showPerron=false&stationGroup1Title=Beringen%2C%20Bahnhof&station_1_id=85%3A95416&station_1_name=Beringen%2C%20Bahnhof&station_1_quantity=5&station_1_group=1" frameborder="0" style="height: 100vh; width: 100vw; border: none;"></iframe>
     </div>
+    <div id="beringen-haegli" style="display: none;">
+        <iframe src="https://free.oevplus.ch/monitor/?viewType=singleView&layout=1&showClock=true&showPerron=true&stationGroup1Title=Beringen%2C%20H%C3%A4gli&station_1_id=85%3A78373&station_1_name=Beringen%2C%20H%C3%A4gli&station_1_quantity=5&station_1_group=1" frameborder="0" style="height: 100vh; width: 100vw; border: none;"></iframe>
+    </div>
 
     <script>
         let beringen_bad_bf = document.getElementById("beringen-bad-bf");
         let beringen_sonne = document.getElementById("beringen-sonne");
         let beringen_bhf = document.getElementById("beringen-bhf");
+        let beringen_haegli = document.getElementById("beringen-haegli")
 
         let delaytime = 30000;
         let counter = 1;
@@ -37,9 +41,13 @@
             {
                 changetodiv2();
                 counter = 3;
-            } else
+            } else if (counter == 3)
             {
                 changetodiv3();
+                counter = 4;
+            } else
+            {
+                changetodiv4();
                 counter = 1;
             }
         }
@@ -48,16 +56,25 @@
             beringen_bad_bf.style.display = "block";
             beringen_sonne.style.display = "none";
             beringen_bhf.style.display = "none";
+            beringen_haegli.style.display = "none";
         }
         function changetodiv2() {
             beringen_bad_bf.style.display = "none";
             beringen_sonne.style.display = "block";
             beringen_bhf.style.display = "none";
+            beringen_haegli.style.display = "none";
         }
         function changetodiv3() {
             beringen_bad_bf.style.display = "none";
             beringen_sonne.style.display = "none";
             beringen_bhf.style.display = "block";
+            beringen_haegli.style.display = "none";
+        }
+        function changetodiv4() {
+            beringen_bad_bf.style.display = "none";
+            beringen_sonne.style.display = "none";
+            beringen_bhf.style.display = "none"
+            beringen_haegli.style.display = "block";
         }
     </script>
 </body>
